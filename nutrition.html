@@ -20,6 +20,8 @@
       }
     </style>
         <link rel="preconnect" href="https://images.pexels.com">
+        <link rel="preload" as="image" href="your-image.webp" type="image/webp">
+
 
   </head>
   <body class="bg-gray-50">
@@ -113,30 +115,42 @@
 
     <!-- قسم البطل -->
     <section
-      id="hero"
-      class="hero-gradient text-white py-20 animate__animated animate__fadeIn"
-    >
-      <div
-        class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10"
-      >
-        <div class="md:w-1/2 text-center md:text-right">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">
-            نصائح للتغذية الصحية
-          </h2>
-          <p class="text-lg md:text-xl leading-relaxed mb-6">
-            اكتشف طرقاً لتحقيق توازن غذائي يساعدك على الحفاظ على لياقتك وتعزيز
-            صحتك.
-          </p>
-        </div>
-        <div class="md:w-1/2">
-          <img
-            src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
-            alt="صورة التغذية الصحية"
-            class="w-full h-auto rounded-2xl shadow-2xl"
-          />
-        </div>
+  id="hero"
+  class="relative hero-gradient text-white py-28 overflow-hidden animate__animated animate__fadeIn"
+  style="
+    background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg');
+    background-size: cover;
+    background-position: center;
+  "
+>
+  <!-- طبقة تعتيم فوق الصورة -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- المحتوى -->
+  <div class="relative z-10 container mx-auto px-4 flex items-center">
+    <div class="w-full md:w-1/2 text-left">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        نصائح للتغذية الصحية
+      </h2>
+      <p class="text-lg md:text-xl leading-relaxed mb-6">
+        اكتشف طرقاً لتحقيق توازن غذائي يساعدك على الحفاظ على لياقتك وتعزيز صحتك.
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <button
+          class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition"
+        >
+          حمل التطبيق الآن
+        </button>
+        <button
+          class="border-2 border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-blue-600 transition"
+        >
+          تعرف أكثر
+        </button>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <!-- قسم النصائح -->
     <section class="py-20 bg-white">
@@ -370,23 +384,33 @@
     </section>
 
     <!-- قسم التمرين المكمل -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          تمارين مكملة
-        </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-8">
-          اكتشف بعض التمرينات التي يمكن أن تدعم نظامك الغذائي وتجعل رحلتك نحو
-          لياقة أفضل أكثر تكاملاً.
-        </p>
-        <a
-          href="exercise.html"
-          class="bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition inline-flex items-center"
-        >
-          ابدأ التمرين
-        </a>
-      </div>
-    </section>
+<section
+  class="py-20 bg-white text-white relative"
+  style="
+    background-image: url('https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg');
+    background-size: cover;
+    background-position: center;
+  "
+>
+  <!-- طبقة تغبيش بسيطة -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- المحتوى -->
+  <div class="relative container mx-auto px-4 text-center z-10">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">تمارين مكملة</h2>
+    <p class="max-w-2xl mx-auto mb-8 text-lg">
+      اكتشف بعض التمرينات التي يمكن أن تدعم نظامك الغذائي وتجعل رحلتك نحو
+      لياقة أفضل أكثر تكاملاً.
+    </p>
+    <a
+      href="exercise.html"
+      class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition inline-flex items-center"
+    >
+      ابدأ التمرين
+    </a>
+  </div>
+</section>
+
 
     <!-- التذييل -->
     <!-- التذييل -->
