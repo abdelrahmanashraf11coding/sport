@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>صفحة التمرين - تطبيق لياقتك</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap");
+      body {
+        font-family: "Tajawal", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- شريط التنقل -->
+    <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
+      <div class="container mx-auto px-4 flex items-center justify-center">
+        <a href="exercise.html" class="text-blue-600 font-bold mx-4 border-b-2 border-blue-600 pb-1">التمرين</a>
+        <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium mx-4 transition duration-300">الصفحة الرئيسية</a>
+        <a href="nutrition.html" class="text-gray-600 hover:text-blue-600 font-medium mx-4 transition duration-300">التغذية</a>
+          <a href="trainer.html" class="text-gray-600 hover:text-blue-600 font-medium mx-4 transition duration-300">
+              المدرب الآلي
+            </a>
+      </div>
+    </nav>
+
+    <!-- قسم البطل -->
+    <section id="hero" class="hero-gradient text-white py-20 animate__animated animate__fadeIn">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+        <div class="md:w-1/2 text-center md:text-right">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">تمارين لتحسين لياقتك</h2>
+          <p class="text-lg md:text-xl leading-relaxed mb-6">
+            اكتشف روتينات تمرين متنوعة تساعدك على بناء القوة والقدرة البدنية وتعزيز صحتك.
+          </p>
+        </div>
+        <div class="md:w-1/2">
+          <img
+            src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg"
+            alt="تمارين رياضية"
+            class="w-full h-auto rounded-2xl shadow-2xl object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم روتينات التمرين -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">روتينات التمرين</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            استكشف التمرينات التي تناسب جميع مستويات اللياقة، من تمارين الكارديو وتمارين القوة إلى اليوغا.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <script>
+            const exercises = [
+              { title: "تمارين الكارديو", description: "تحسين صحة القلب وزيادة التحمل البدني.", color: "blue", image: "https://images.pexels.com/photos/3757377/pexels-photo-3757377.jpeg" },
+              { title: "تمارين القوة", description: "تقوي العضلات وتزيد القدرة على التحمل.", color: "green", image: "https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg" },
+              { title: "تمارين اليوغا", description: "تحسين المرونة والتوازن والاسترخاء.", color: "purple", image: "https://images.pexels.com/photos/3822190/pexels-photo-3822190.jpeg" },
+              { title: "تمارين البطن", description: "تقوية عضلات البطن وتحسين التوازن الداخلي.", color: "red", image: "https://images.pexels.com/photos/4662438/pexels-photo-4662438.jpeg" },
+              { title: "تمارين الرجلين", description: "بناء القوة في الفخذين والساقين وزيادة التوازن.", color: "yellow", image: "https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg" },
+              { title: "تمارين التمدد", description: "تحسين المرونة والتقليل من خطر الإصابة.", color: "pink", image: "https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg" },
+              { title: "تمارين التوازن", description: "تحسين التوازن والسيطرة على الجسم.", color: "indigo", image: "https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg" },
+              { title: "تمارين الجسم العلوي", description: "تقوية عضلات الذراعين والكتفين والصدر.", color: "cyan", image: "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg" },
+              { title: "تمارين الجسم السفلي", description: "تركيز على تقوية الساقين والفخذين.", color: "orange", image: "https://images.pexels.com/photos/2261482/pexels-photo-2261482.jpeg" },
+              { title: "تمارين HIIT", description: "زيادة معدل الحرق في وقت قصير.", color: "rose", image: "https://images.pexels.com/photos/4140296/pexels-photo-4140296.jpeg" },
+              { title: "تمارين المقاومة", description: "تحسين قوة العضلات والشد.", color: "lime", image: "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg" },
+              { title: "تمارين الاستشفاء", description: "تخفيف التوتر وتحسين الدورة الدموية.", color: "gray", image: "https://images.pexels.com/photos/3823047/pexels-photo-3823047.jpeg" },
+              { title: "تمارين بلانك", description: "تقوية عضلات الجذع وتحسين الثبات.", color: "teal", image: "https://images.pexels.com/photos/4056724/pexels-photo-4056724.jpeg" },
+              { title: "تمارين الدفع", description: "تقوية الجزء العلوي من الجسم وزيادة اللياقة.", color: "fuchsia", image: "https://images.pexels.com/photos/3838381/pexels-photo-3838381.jpeg" },
+              { title: "تمارين العقلة", description: "بناء عضلات الظهر والذراعين.", color: "amber", image: "https://images.pexels.com/photos/7674941/pexels-photo-7674941.jpeg" },
+              { title: "تمارين القفز", description: "زيادة اللياقة والتحمل البدني.", color: "violet", image: "https://images.pexels.com/photos/3326717/pexels-photo-3326717.jpeg" },
+              { title: "تمارين الضغط الجانبي", description: "تفعيل عضلات الذراعين والجذع.", color: "emerald", image: "https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg" },
+              { title: "تمارين الجلوس والوقوف", description: "تحفيز عضلات الرجلين والظهر.", color: "neutral", image: "https://images.pexels.com/photos/4397831/pexels-photo-4397831.jpeg" }
+            ];
+
+            document.addEventListener("DOMContentLoaded", () => {
+              const container = document.querySelector(".grid");
+              exercises.forEach((ex) => {
+                const card = document.createElement("div");
+                card.className = "bg-gray-50 p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300";
+                card.innerHTML = `
+                  <img src="${ex.image}" alt="${ex.title}" class="rounded-xl w-full h-48 object-cover mb-4" />
+                  <h3 class="text-xl font-bold text-${ex.color}-600 mb-2">${ex.title}</h3>
+                  <p class="text-gray-600 mb-4">${ex.description}</p>
+                  <a href="#" class="inline-block bg-${ex.color}-600 text-white px-5 py-2 rounded-full hover:bg-${ex.color}-700 transition">ابدأ التمرين</a>
+                `;
+                container.appendChild(card);
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم دعوة للعمل -->
+    <section class="py-16 bg-blue-600 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">ابدأ رحلتك نحو لياقة أفضل</h2>
+        <p class="max-w-xl mx-auto mb-8">
+          انضم الآن للحصول على خطط تمارين مخصصة ونصائح رياضية تساعدك على تحقيق أفضل النتائج.
+        </p>
+        <a href="signup.html" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition inline-flex items-center">سجل الآن</a>
+      </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="bg-gray-900 text-gray-300 py-10">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+          <div class="text-center md:text-left mb-6 md:mb-0">
+            <img
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e094815b-9b52-425c-bab1-92df17446a67.png"
+              alt="شعار تطبيق لياقتك"
+              class="h-12 mx-auto md:mx-0"
+            />
+            <p class="text-gray-400 text-sm mt-4">
+              تطبيق لياقتك - اجعل لياقتك ممتعة ومليئة بالتحديات!
+            </p>
+          </div>
+          <div class="flex flex-col md:flex-row gap-6 text-center">
+            <a href="index.html" class="text-gray-400 hover:text-white transition">الصفحة الرئيسية</a>
+            <a href="nutrition.html" class="text-gray-400 hover:text-white transition">التغذية</a>
+            <a href="exercise.html" class="text-gray-400 hover:text-white transition">التمرين</a>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 pt-6 text-center">
+          <p class="text-gray-500 text-sm">© 2025 تطبيق لياقتك. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
