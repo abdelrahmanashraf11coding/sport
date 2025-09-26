@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <title>المدرب اللالي</title>
+    <title>💪 المدرب اللالي - Gemini</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
@@ -17,40 +17,22 @@
     </style>
   </head>
   <body class="bg-gray-900 text-white flex flex-col min-h-screen">
-    <!-- العنوان في النص -->
+    <!-- الهيدر -->
     <div
       class="w-full bg-blue-600 flex items-center justify-center py-4 text-xl font-bold shadow relative"
     >
       <a href="index.html" class="absolute left-4">
         <button onclick="history.back()" class="text-white">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
+          ⬅
         </button>
-
-        <!-- العنوان -->
-
-        <!-- عنصر فاضي علشان يوازن الشكل -->
-        <span class="w-6"></span>
       </a>
       <header class="w-full text-center">💪 اسأل المدرب</header>
     </div>
 
-    <!-- صندوق الدردشة يتمدد -->
+    <!-- صندوق الشات -->
     <div id="chat" class="flex-1 overflow-y-auto p-4"></div>
 
-    <!-- مربع البحث يفضل تحت -->
+    <!-- إدخال الرسالة -->
     <form id="chat-form" class="bg-gray-800 p-4 flex gap-2">
       <input
         id="user-input"
@@ -68,8 +50,9 @@
     </form>
 
     <script>
-      const OPENROUTER_API_KEY =
-        "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";
+      // 🔑 ضيف هنا مفتاح Gemini API بتاعك
+      const GEMINI_API_KEY = "AIzaSyCNyD13AcgcvlhEyb7JPgOF3cx3Sl2KYqs";
+
       const chatForm = document.getElementById("chat-form");
       const userInput = document.getElementById("user-input");
       const chatBox = document.getElementById("chat");
@@ -85,28 +68,30 @@
 
         try {
           const res = await fetch(
-            "https://openrouter.ai/api/v1/chat/completions",
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
             {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${OPENROUTER_API_KEY}`,
-                "HTTP-Referer": "https://your-site.com",
-                "X-Title": "My GPT Chat",
               },
               body: JSON.stringify({
-                model: "openai/gpt-3.5-turbo",
-                messages: [{ role: "user", content: message }],
+                contents: [
+                  {
+                    role: "user",
+                    parts: [{ text: message }],
+                  },
+                ],
               }),
             }
           );
 
           const data = await res.json();
           const reply =
-            data.choices?.[0]?.message?.content || "لم يتم الحصول على رد.";
+            data.candidates?.[0]?.content?.parts?.[0]?.text ||
+            "لم يتم الحصول على رد.";
           updateMessage(loadingId, reply);
         } catch (err) {
-          updateMessage(loadingId, "حدث خطأ أثناء الاتصال بالخادم.");
+          updateMessage(loadingId, "⚠️ حدث خطأ أثناء الاتصال بـ Gemini API.");
         }
       });
 
@@ -125,7 +110,7 @@
         div.appendChild(bubble);
         chatBox.appendChild(div);
         chatBox.scrollTop = chatBox.scrollHeight;
-        return bubble; // علشان نقدر نحدثه لو رسالة تحميل
+        return bubble;
       }
 
       function updateMessage(el, newText) {
